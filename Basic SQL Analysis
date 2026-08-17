@@ -1,0 +1,39 @@
+-- 1. Filtering & Sorting (WHERE, ORDER BY, LIMIT)
+
+-- Retrieve all orders that have been successfully completed
+SELECT * 
+FROM orders 
+WHERE status = 'Completed';
+
+-- Fetch the top 3 highest-priced products
+SELECT product_name, price 
+FROM products 
+ORDER BY price DESC 
+LIMIT 3;
+
+
+-- 2. Aggregate Functions (SUM, AVG, COUNT)
+
+-- Calculate total revenue generated from completed payments
+SELECT SUM(amount) AS total_revenue 
+FROM payments 
+WHERE status = 'Completed';
+
+-- Calculate average product price rounded to 2 decimal places
+SELECT ROUND(AVG(price), 2) AS average_price 
+FROM products;
+
+
+-- 3. Grouping & Filtering (GROUP BY, HAVING)
+
+-- Count the total number of customers per city
+SELECT city, COUNT(customer_id) AS total_customers 
+FROM customer 
+GROUP BY city 
+ORDER BY total_customers DESC;
+
+-- Find product categories with an average price greater than $100
+SELECT category_id, ROUND(AVG(price), 2) AS avg_price 
+FROM products 
+GROUP BY category_id 
+HAVING AVG(price) > 100;
