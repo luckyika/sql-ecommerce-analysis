@@ -1,10 +1,10 @@
--- 1. Categories (დამოუკიდებელი)
+-- 1. Categories 
 INSERT INTO categories (category_name) VALUES 
 ('Electronics'),
 ('Home Appliances'),
 ('Sportswear');
 
--- 2. Customer (დამოუკიდებელი)
+-- 2. Customer 
 INSERT INTO customer (first_name, last_name, email, registration_date, city) VALUES
 ('გიორგი', 'ბერიძე', 'giorgi.b@example.com', '2026-01-15', 'Tbilisi'),
 ('ნინო', 'კაპანაძე', 'nino.k@example.com', '2026-02-01', 'Kutaisi'),
@@ -14,7 +14,7 @@ INSERT INTO customer (first_name, last_name, email, registration_date, city) VAL
 ('ლუკა', 'გიორგაძე', 'luka.g@example.com', '2026-03-20', 'Tbilisi'),
 ('Elena', 'Russo', 'elena.r@example.com', '2026-04-02', 'Rome');
 
--- 3. Products (დამოკიდებულია categories-ზე)
+-- 3. Products 
 INSERT INTO products (product_name, category_id, price, stock_quantity, created_at) VALUES
 ('Laptop Pro 15', 1, 1200.00, 15, '2026-01-10'),
 ('Wireless Mouse', 1, 25.50, 100, '2026-01-12'),
@@ -24,7 +24,7 @@ INSERT INTO products (product_name, category_id, price, stock_quantity, created_
 ('Smart Watch', 1, 210.00, 30, '2026-02-10'),
 ('Desk Lamp', 2, 45.00, 60, '2026-02-15');
 
--- 4. Orders (დამოკიდებულია customer-ზე)
+-- 4. Orders 
 INSERT INTO orders (customer_id, order_date, status) VALUES
 (1, '2026-03-15', 'Completed'),
 (2, '2026-03-16', 'Completed'),
@@ -34,7 +34,7 @@ INSERT INTO orders (customer_id, order_date, status) VALUES
 (5, '2026-03-22', 'Completed'),
 (6, '2026-03-25', 'Completed');
 
--- 5. Order Items (დამოკიდებულია orders-ზე და products-ზე)
+-- 5. Order Items 
 INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES
 (1, 1, 1, 1200.00),
 (1, 2, 2, 25.50),
@@ -45,7 +45,7 @@ INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES
 (6, 6, 1, 210.00),
 (7, 7, 2, 45.00);
 
--- 6. Payments (დამოკიდებულია orders-ზე)
+-- 6. Payments 
 INSERT INTO payments (order_id, amount, payment_method, status) VALUES
 (1, 1251.00, 'Credit Card', 'Completed'),
 (2, 150.00, 'PayPal', 'Completed'),
